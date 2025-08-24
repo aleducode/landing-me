@@ -70,3 +70,18 @@ The site uses a utility-based navigation system where `navigateToPage()` functio
 - Static site uses combination of external base.css and page-specific inline styles
 - Remix app uses Tailwind CSS with PostCSS processing
 - Both implementations use Inter font family for consistency
+
+## Deployment
+
+### Cloudflare Pages Git Integration
+- Cloudflare Pages automatically deploys from GitHub repository on push to `main` branch
+- Build configuration in Cloudflare dashboard:
+  - **Build command**: `npm run build`
+  - **Build output directory**: `build/client`
+  - **Root directory**: `my-remix-app` (since the Remix app is in a subdirectory)
+
+### Manual Deployment
+For manual deployments or local testing:
+```bash
+npm run deploy  # Build and deploy via Wrangler CLI
+```
