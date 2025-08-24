@@ -32,9 +32,6 @@ body {
 }
 
 /* Custom Background Classes */
-.bg-black {
-  background: var(--Linear-Blue, linear-gradient(111deg, #20D7FF 0%, #00A5CD 74.5%));
-}
 
 .bg-green {
   background: var(--Linear-Green, linear-gradient(111deg, #2EF171 0%, #10983F 74.5%));
