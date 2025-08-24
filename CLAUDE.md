@@ -73,15 +73,33 @@ The site uses a utility-based navigation system where `navigateToPage()` functio
 
 ## Deployment
 
-### Cloudflare Pages Git Integration
-- Cloudflare Pages automatically deploys from GitHub repository on push to `main` branch
-- Build configuration in Cloudflare dashboard:
-  - **Build command**: `npm run build`
-  - **Build output directory**: `build/client`
-  - **Root directory**: `my-remix-app` (since the Remix app is in a subdirectory)
+### Cloudflare Pages Setup with Wrangler
+The project is configured with `wrangler.toml` for Cloudflare Pages deployment:
 
-### Manual Deployment
-For manual deployments or local testing:
 ```bash
-npm run deploy  # Build and deploy via Wrangler CLI
+# Create project (if not exists)
+wrangler pages project create landing-me --compatibility-date=2025-08-23 --production-branch=main
+
+# Download current project config
+wrangler pages download config landing-me
+
+# Manual deployment
+npm run build
+wrangler pages deploy build/client --project-name landing-me
+```
+
+### Git Integration for Auto-Deployment
+To enable automatic deployment on push to `main`:
+
+1. Go to Cloudflare dashboard: Settings → Source → Connect to Git
+2. Connect GitHub repository: `aleducode/landing-me`
+3. Configure build settings:
+   - **Production branch**: `main`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `build/client`
+   - **Root directory**: `my-remix-app`
+
+### Quick Deploy
+```bash
+npm run deploy  # Uses npm script: build + wrangler pages deploy
 ```
