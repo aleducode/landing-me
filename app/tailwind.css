@@ -30,3 +30,37 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* Custom Background Classes */
+.bg-black {
+  background: var(--Linear-Blue, linear-gradient(111deg, #20D7FF 0%, #00A5CD 74.5%));
+}
+
+.bg-green {
+  background: var(--Linear-Green, linear-gradient(111deg, #2EF171 0%, #10983F 74.5%));
+}
+
+.bg-orange {
+  background: var(--Linear-Orange, linear-gradient(111deg, #FF6320 0%, #C2301E 74.5%));
+}
+
+.bg-yellow {
+  background: var(--Linear-Yellow, linear-gradient(111deg, #FFE353 0%, #FFC121 74.5%));
+}
+
+/* Custom Text Color Classes for Selected Menu Items */
+.text-blue-300 {
+  color: #20D7FF;
+}
+
+.text-green-300 {
+  color: #2EF171;
+}
+
+.text-orange-300 {
+  color: #FF6320;
+}
+
+.text-yellow-300 {
+  color: #FFE353;
+}
