@@ -1,15 +1,18 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
 import { Link } from "@remix-run/react";
 import Layout from "~/components/Layout";
+import { useTranslation } from "~/hooks/useTranslation";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Alejandro Duque - CTO/Developer" },
-    { name: "description", content: "As a CTO/Developer, I blend code and design to build unique, user-centric experiences. Let's turn your ideas into a dynamic and engaging digital reality!" },
+    { title: "Alejandro Duque - CTO/Tech Leader" },
+    { name: "description", content: "Dynamic CTO with +8 years driving innovation. Specializing in Django, Docker, PostgreSQL - delivering scalable solutions serving millions of users." },
   ];
 };
 
 export default function Index() {
+  const { t } = useTranslation();
+  
   return (
     <Layout>
       {/* Intro Section */}
@@ -22,10 +25,10 @@ export default function Index() {
         
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-12">
           <h1 className="font-medium text-2xl md:text-[32px] leading-tight text-white tracking-tight max-w-full md:max-w-[400px]">
-            👋 Hello, I&apos;m Alejandro – Crafting Creative Code!
+            {t('hello_intro')}
           </h1>
           <p className="font-medium text-sm leading-tight text-white/50 max-w-full md:max-w-[296px]">
-            As a CTO/Developer, I blend code and design to build unique, user-centric experiences. Let&apos;s turn your ideas into a dynamic and engaging digital reality!
+            {t('intro_description')}
           </p>
         </div>
       </section>
@@ -36,10 +39,10 @@ export default function Index() {
           <Link to="/about" className="block">
             <div className="bg-yellow-400/10 border border-yellow-400/10 rounded-xl min-h-[160px] md:min-h-[200px] p-5 md:p-6 pb-8 relative hover:transform hover:-translate-y-1 transition-transform cursor-pointer overflow-hidden">
               <div className="bg-yellow-400/5 border border-yellow-400/20 rounded-full px-2.5 py-2 text-xs font-medium text-yellow-300 w-fit mb-4">
-                About
+                {t('about')}
               </div>
               <div className="font-medium text-lg md:text-2xl leading-tight text-yellow-300 max-w-full md:max-w-[200px]">
-                A Peek into My Creative Journey
+                {t('creative_journey')}
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-yellow-300"></div>
               <div className="absolute -bottom-6 -right-4 bg-yellow-400/5 border border-yellow-400/5 rounded-full w-12 h-12 md:w-14 md:h-14"></div>
@@ -50,10 +53,10 @@ export default function Index() {
           <Link to="/portfolio" className="block">
             <div className="bg-orange-500/10 border border-orange-500/10 rounded-xl min-h-[160px] md:min-h-[200px] p-5 md:p-6 pb-8 relative hover:transform hover:-translate-y-1 transition-transform cursor-pointer overflow-hidden">
               <div className="bg-orange-500/5 border border-orange-500/20 rounded-full px-2.5 py-2 text-xs font-medium text-orange-400 w-fit mb-4">
-                Portfolio
+                {t('portfolio')}
               </div>
               <div className="font-medium text-lg md:text-2xl leading-tight text-orange-400 max-w-full md:max-w-[200px]">
-                Top Work and Creative Projects
+                {t('top_work_projects')}
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-orange-400"></div>
               <div className="absolute -bottom-6 -right-4 bg-orange-500/5 border border-orange-500/5 rounded-full w-12 h-12 md:w-14 md:h-14"></div>
@@ -64,10 +67,10 @@ export default function Index() {
           <Link to="/services" className="block">
             <div className="bg-green-500/10 border border-green-500/10 rounded-xl min-h-[160px] md:min-h-[200px] p-5 md:p-6 pb-8 relative hover:transform hover:-translate-y-1 transition-transform cursor-pointer overflow-hidden">
               <div className="bg-green-500/5 border border-green-500/20 rounded-full px-2.5 py-2 text-xs font-medium text-green-400 w-fit mb-4">
-                Services
+                {t('services')}
               </div>
               <div className="font-medium text-lg md:text-2xl leading-tight text-green-400 max-w-full md:max-w-[200px]">
-                Solutions to Meet Your Goals
+                {t('solutions_goals')}
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-green-400"></div>
               <div className="absolute -bottom-6 -right-4 bg-green-500/5 border border-green-500/5 rounded-full w-12 h-12 md:w-14 md:h-14"></div>
@@ -78,10 +81,10 @@ export default function Index() {
           <Link to="/contact" className="block">
             <div className="bg-blue-500/10 border border-blue-500/10 rounded-xl min-h-[160px] md:min-h-[200px] p-5 md:p-6 pb-8 relative hover:transform hover:-translate-y-1 transition-transform cursor-pointer overflow-hidden">
               <div className="bg-blue-500/5 border border-blue-500/20 rounded-full px-2.5 py-2 text-xs font-medium text-blue-400 w-fit mb-4">
-                Contact
+                {t('contact')}
               </div>
               <div className="font-medium text-lg md:text-2xl leading-tight text-blue-400 max-w-full md:max-w-[200px]">
-                Let&apos;s Start a Conversation
+                {t('start_conversation')}
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-400"></div>
               <div className="absolute -bottom-6 -right-4 bg-blue-500/5 border border-blue-500/5 rounded-full w-12 h-12 md:w-14 md:h-14"></div>

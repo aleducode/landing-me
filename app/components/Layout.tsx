@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@remix-run/react";
 import { useState, useEffect } from "react";
+import { useTranslation, LanguageSwitcher } from "~/hooks/useTranslation";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,6 +9,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const isActive = (path: string) => {
     if (path === "/" && location.pathname === "/") return true;
@@ -55,7 +57,7 @@ export default function Layout({ children }: LayoutProps) {
             <div className="w-3 h-3 bg-white/15 rounded-full"></div>
           </div>
           <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 font-medium text-sm text-white/30 whitespace-nowrap">
-            Alejandro Duque
+            {t('alejandro_duque')}
           </div>
         </header>
 
@@ -89,8 +91,8 @@ export default function Layout({ children }: LayoutProps) {
                   <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full"></div>
                 </div>
                 <div className="mb-8 md:mb-10">
-                  <div className="font-medium text-sm text-white mb-1">Alejandro Duque</div>
-                  <div className="font-medium text-sm text-white/50">CTO/Developer</div>
+                  <div className="font-medium text-sm text-white mb-1">{t('alejandro_duque')}</div>
+                  <div className="font-medium text-sm text-white/50">{t('cto_developer')}</div>
                 </div>
               </Link>
             </div>
@@ -103,7 +105,7 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="flex items-center gap-2.5">
                   {isActive('/about') && <div className="w-1 h-1 bg-yellow-300 rounded-full"></div>}
                   <span className={`font-medium text-sm ${isActive('/about') ? 'text-yellow-300' : 'text-white'}`}>
-                    About
+                    {t('about')}
                   </span>
                 </div>
               </Link>
@@ -114,7 +116,7 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="flex items-center gap-2.5">
                   {isActive('/portfolio') && <div className="w-1 h-1 bg-orange-300 rounded-full"></div>}
                   <span className={`font-medium text-sm ${isActive('/portfolio') ? 'text-orange-300' : 'text-white'}`}>
-                    Portfolio
+                    {t('portfolio')}
                   </span>
                 </div>
               </Link>
@@ -125,7 +127,7 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="flex items-center gap-2.5">
                   {isActive('/services') && <div className="w-1 h-1 bg-green-300 rounded-full"></div>}
                   <span className={`font-medium text-sm ${isActive('/services') ? 'text-green-300' : 'text-white'}`}>
-                    Services
+                    {t('services')}
                   </span>
                 </div>
               </Link>
@@ -136,7 +138,7 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="flex items-center gap-2.5">
                   {isActive('/contact') && <div className="w-1 h-1 bg-blue-300 rounded-full"></div>}
                   <span className={`font-medium text-sm ${isActive('/contact') ? 'text-blue-300' : 'text-white'}`}>
-                    Contact
+                    {t('contact')}
                   </span>
                 </div>
               </Link>
@@ -150,7 +152,7 @@ export default function Layout({ children }: LayoutProps) {
                 rel="noreferrer" 
                 className="block bg-white/10 border border-white/5 rounded-[10px] px-4 py-3 w-full cursor-pointer transition-colors hover:bg-white/15 text-decoration-none"
               >
-                <div className="font-medium text-sm text-white/65 text-center">Book a Call</div>
+                <div className="font-medium text-sm text-white/65 text-center">{t('book_a_call')}</div>
               </a>
             </div>
           </aside>
@@ -167,12 +169,15 @@ export default function Layout({ children }: LayoutProps) {
               <div className={`w-5 h-0.5 bg-white transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
             </button>
             
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+            
             {children}
             
             {/* Footer */}
             <footer className="bg-black/20 border-t border-white/10 px-12 py-6 flex justify-between items-center mt-auto">
-              <div className="font-medium text-xs text-white/30">© 2024, All Rights Reserved</div>
-              <div className="font-medium text-xs text-white/30">Licenses</div>
+              <div className="font-medium text-xs text-white/30">{t('all_rights_reserved')}</div>
+              <div className="font-medium text-xs text-white/30">{t('licenses')}</div>
             </footer>
           </main>
         </div>

@@ -1,6 +1,7 @@
 import type { ActionFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
 import { Form, useActionData } from "@remix-run/react";
 import Layout from "~/components/Layout";
+import { useTranslation } from "~/hooks/useTranslation";
 
 export const meta: MetaFunction = () => {
   return [
@@ -84,6 +85,7 @@ export async function action({ request, context }: ActionFunctionArgs) {
 }
 
 export default function Contact() {
+  const { t } = useTranslation();
   const actionData = useActionData<typeof action>();
   return (
     <div className="min-h-screen bg-blue">
@@ -93,13 +95,13 @@ export default function Contact() {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:gap-12">
             <div className="flex-1 max-w-full md:max-w-[400px]">
               <div className="bg-[rgba(32,215,255,0.05)] border border-[rgba(32,215,255,0.2)] rounded-full px-2.5 py-2 text-xs font-medium text-[#20d7ff] w-fit mb-4">
-                Contact
+                {t('contact')}
               </div>
               <h1 className="font-medium text-2xl md:text-[32px] leading-tight text-white tracking-tight mb-3">
-                Let&apos;s Connect and Collaborate
+                {t('contact_title')}
               </h1>
               <p className="font-medium text-sm leading-tight text-white/50 max-w-full md:max-w-[360px]">
-                Reach out to discuss your project or ideas. I&apos;m here to provide support and turn your vision into reality.
+                {t('contact_description')}
               </p>
             </div>
             <div className="flex items-center gap-0 pr-0 md:pr-7">
@@ -122,9 +124,9 @@ export default function Contact() {
             {/* Contact Form - Blue Theme */}
             <div className="flex-1 bg-[rgba(32,215,255,0.05)] border border-[rgba(32,215,255,0.05)] rounded-xl p-5 md:p-8 relative overflow-hidden">
               <div className="mb-6 md:mb-8">
-                <h2 className="font-medium text-lg md:text-2xl leading-tight text-white mb-3">📤 Get In Touch</h2>
+                <h2 className="font-medium text-lg md:text-2xl leading-tight text-white mb-3">{t('get_in_touch')}</h2>
                 <p className="font-medium text-sm leading-tight text-white/50 max-w-full md:max-w-[360px]">
-                  Have a question or want to start a project? Contact me, and let&apos;s make your ideas come to life!
+                  {t('get_in_touch_description')}
                 </p>
               </div>
               {actionData?.error && (
@@ -142,7 +144,7 @@ export default function Contact() {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Your Name"
+                    placeholder={t('your_name')}
                     required
                     className="bg-[rgba(32,215,255,0.05)] border border-[rgba(32,215,255,0.1)] rounded-lg px-5 py-4 w-full font-medium text-sm text-white/30 placeholder-white/30 focus:outline-none focus:border-[rgba(32,215,255,0.2)]"
                   />
@@ -151,7 +153,7 @@ export default function Contact() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Email"
+                    placeholder={t('email')}
                     required
                     className="bg-[rgba(32,215,255,0.05)] border border-[rgba(32,215,255,0.1)] rounded-lg px-5 py-4 w-full font-medium text-sm text-white/30 placeholder-white/30 focus:outline-none focus:border-[rgba(32,215,255,0.2)]"
                   />
@@ -159,7 +161,7 @@ export default function Contact() {
                 <div>
                   <textarea
                     name="message"
-                    placeholder="How can I help you?"
+                    placeholder={t('how_can_i_help')}
                     required
                     rows={6}
                     className="bg-[rgba(32,215,255,0.05)] border border-[rgba(32,215,255,0.1)] rounded-lg px-5 py-4 w-full font-medium text-sm text-white/30 placeholder-white/30 focus:outline-none focus:border-[rgba(32,215,255,0.2)] resize-none"
@@ -169,7 +171,7 @@ export default function Contact() {
                   type="submit"
                   className="bg-[rgba(32,215,255,0.2)] border border-[rgba(32,215,255,0.1)] rounded-lg px-4 py-4 w-full font-medium text-sm text-[#20d7ff] cursor-pointer transition-colors hover:bg-[rgba(32,215,255,0.3)]"
                 >
-                  Send a Message
+                  {t('send_message')}
                 </button>
               </Form>
             </div>
@@ -178,7 +180,7 @@ export default function Contact() {
             <div className="flex-1 flex flex-col gap-3 mt-3 md:mt-0">
               {/* Social Media - Blue Theme */}
               <div className="bg-[rgba(32,215,255,0.05)] border border-[rgba(32,215,255,0.05)] rounded-xl p-5 md:p-8 relative overflow-hidden">
-                <h3 className="font-medium text-base md:text-xl leading-tight text-white mb-5">🔹 Follow Me</h3>
+                <h3 className="font-medium text-base md:text-xl leading-tight text-white mb-5">{t('follow_me')}</h3>
                 <div className="grid grid-cols-2 gap-1.5">
                   {[
                     {
@@ -238,9 +240,9 @@ export default function Contact() {
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor" />
                   </svg>
                 </div>
-                <h3 className="font-medium text-base md:text-xl leading-tight text-white mb-2">🦋 Book a Call</h3>
+                <h3 className="font-medium text-base md:text-xl leading-tight text-white mb-2">{t('book_call_title')}</h3>
                 <p className="font-medium text-sm leading-tight text-white/50 mb-6 max-w-full md:max-w-[240px]">
-                  Have a question or want to start a project? Contact me, and let&apos;s make your ideas come to life!
+                  {t('book_call_description')}
                 </p>
                 <a
                   href="https://calendar.notion.so/meet/alejandroduque/kmel84oty"
@@ -248,7 +250,7 @@ export default function Contact() {
                   rel="noreferrer"
                   className="block bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.05)] rounded-lg px-4 py-3 w-full cursor-pointer transition-colors hover:bg-[rgba(255,255,255,0.2)] no-underline"
                 >
-                  <div className="font-medium text-sm text-white/65 text-center">Book a Call</div>
+                  <div className="font-medium text-sm text-white/65 text-center">{t('book_a_call')}</div>
                 </a>
               </div>
             </div>

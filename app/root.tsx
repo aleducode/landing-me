@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { TranslationProvider } from "~/hooks/useTranslation";
 
 import "./tailwind.css";
 
@@ -30,5 +31,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <TranslationProvider>
+      <Outlet />
+    </TranslationProvider>
+  );
 }

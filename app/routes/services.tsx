@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
 import Layout from "~/components/Layout";
+import { useTranslation } from "~/hooks/useTranslation";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,6 +10,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Services() {
+  const { t } = useTranslation();
+  
   return (
     <div className="min-h-screen bg-green">
       <Layout>
@@ -17,13 +20,13 @@ export default function Services() {
           <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 md:gap-12">
             <div className="flex-1 max-w-full md:max-w-[400px]">
               <div className="bg-green-400/5 border border-green-400/20 rounded-full px-2.5 py-2 text-xs font-medium text-green-400 w-fit mb-4">
-                Services
+                {t('services')}
               </div>
               <h1 className="font-medium text-2xl md:text-[32px] leading-tight text-white tracking-tight mb-3">
-                Explore My Range of Specialized Services
+                {t('services_title')}
               </h1>
               <p className="font-medium text-sm leading-tight text-white/50 max-w-full md:max-w-[360px]">
-                Explore services crafted to bring your vision to life. From innovative solutions to expert support, I offer everything needed for exceptional results.
+                {t('services_description')}
               </p>
             </div>
             <div className="flex items-center gap-0 pr-4 md:pr-7">
@@ -53,12 +56,12 @@ export default function Services() {
                   <path d="M2 14L14 20L26 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">Web Development</h3>
+              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">{t('web_development')}</h3>
               <p className="font-medium text-sm leading-tight text-white/50 mb-6 md:mb-8">
-                Custom, high-performance websites that combine modern design with functionality, tailored to meet your specific needs.
+                {t('web_development_description')}
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {["Responsive Design", "CMS Integration", "Custom Features", "Performance Boost"].map((tag) => (
+                {["Django REST Framework", "AWS Cloud", "Docker", "Python Backend"].map((tag) => (
                   <div key={tag} className="bg-green-400/5 border border-green-400/20 rounded-full px-2.5 py-2 font-medium text-xs text-green-400 whitespace-nowrap">
                     {tag}
                   </div>
@@ -78,12 +81,12 @@ export default function Services() {
                   <path d="M8 18H12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">Full-Stack Development</h3>
+              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">{t('full_stack_development')}</h3>
               <p className="font-medium text-sm leading-tight text-white/50 mb-6 md:mb-8">
-                End-to-end development services, covering both front-end and back-end, to create robust and scalable web applications.
+                {t('full_stack_development_description')}
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {["Front-End UI", "Back-End Logic", "Database Setup", "API Integration"].map((tag) => (
+                {["Universidad EIA", "Platzi Certified", "Problem Solving", "Pragmatic Solutions"].map((tag) => (
                   <div key={tag} className="bg-green-400/5 border border-green-400/20 rounded-full px-2.5 py-2 font-medium text-xs text-green-400 whitespace-nowrap">
                     {tag}
                   </div>
@@ -101,12 +104,12 @@ export default function Services() {
                   <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">E-Commerce Solutions</h3>
+              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">{t('ecommerce_solutions')}</h3>
               <p className="font-medium text-sm leading-tight text-white/50 mb-6 md:mb-8">
-                Create and optimize E-Commerce platforms that offer a seamless shopping experience, from storefront design to payment integration.
+                {t('ecommerce_solutions_description')}
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {["Storefront Design", "Payment Setup", "Inventory Tools", "Checkout Streamlining"].map((tag) => (
+                {["Blockchain", "Ethereum", "Data Engineering", "Analytics"].map((tag) => (
                   <div key={tag} className="bg-green-400/5 border border-green-400/20 rounded-full px-2.5 py-2 font-medium text-xs text-green-400 whitespace-nowrap">
                     {tag}
                   </div>
@@ -126,12 +129,12 @@ export default function Services() {
                   <path d="M9 17H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">Website Optimization</h3>
+              <h3 className="font-medium text-xl md:text-2xl leading-tight text-green-400 mb-2">{t('website_optimization')}</h3>
               <p className="font-medium text-sm leading-tight text-white/50 mb-6 md:mb-8">
-                Improve website performance, speed, and SEO to enhance user experience and ensure better visibility on search engines.
+                {t('website_optimization_description')}
               </p>
               <div className="flex flex-wrap gap-1.5">
-                {["Speed Boost", "SEO Improvement", "Mobile Friendly", "Site Security"].map((tag) => (
+                {["Microservices", "High Availability", "Performance Optimization", "Scalability"].map((tag) => (
                   <div key={tag} className="bg-green-400/5 border border-green-400/20 rounded-full px-2.5 py-2 font-medium text-xs text-green-400 whitespace-nowrap">
                     {tag}
                   </div>
@@ -146,11 +149,11 @@ export default function Services() {
         <section className="px-6 md:px-12 py-8 md:py-10">
           <div className="flex flex-col md:flex-row gap-6 md:gap-3 items-start mb-8">
             <div className="flex-1 max-w-full md:max-w-80">
-              <h2 className="font-medium text-xl md:text-2xl leading-tight text-white">🧩 Tools & Technologies Powering My Creations</h2>
+              <h2 className="font-medium text-xl md:text-2xl leading-tight text-white">{t('tech_stack_title')}</h2>
             </div>
             <div className="flex-1 max-w-full md:max-w-[464px]">
               <p className="font-medium text-sm leading-tight text-white/50">
-                Explore the cutting-edge tools and technologies I use to build innovative and effective digital solutions, from web and mobile apps to seamless integrations and optimizations.
+                {t('tech_stack_description')}
               </p>
             </div>
           </div>
